@@ -8,7 +8,7 @@ module.exports = {
     output:{
         path:__dirname+'/out', //入口文件最终要输出到哪里
         filename:'index.js', //输出文件的名称
-        publicPath:''  //公共资源路径
+        publicPath:__dirname+'/out'  //公共资源路径
     },
     module:{
         rules:[
