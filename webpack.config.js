@@ -51,5 +51,5 @@ module.exports = {
         ]
     },
     //插件集合
-    plugins:[uglifyPlugin,CommonsChunkPlugin,ExtractTextPlugin,providePlugin]
+    plugins:[uglifyPlugin,CommonsChunkPlugin,new ExtractTextPlugin('[name].css'),providePlugin]
 }

@@ -1,0 +1,1 @@
+webpackJsonp([1],{5:function(n,e,i){"use strict";i(0);var o=i(1),c=i(3);o.init(),c.init(),console.log("12345");var t=new Image;t.src=i(4),document.body.appendChild(t)}},[5]);
