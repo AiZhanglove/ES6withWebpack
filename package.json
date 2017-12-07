@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
     "scrpit-name": "babel-node script.js",
-    "dev": "webpack-dev-server --devtool eval-source-map --progress --colors"
+    "dev": "webpack-dev-server --devtool eval-source-map --inline --hot --color --progress --colors "
   },
   "repository": {
     "type": "git",

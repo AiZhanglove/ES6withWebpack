@@ -12,7 +12,7 @@ var providePlugin = new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'w
 module.exports = {
     //页面入口文件配置 （html文件引入唯一的js 文件）
     entry:{
-        index1:'./src/js/entry.js',
+        index:'./src/js/entry.js',
         index2:'./src/js/entry2.js',
 
     },
@@ -23,9 +23,15 @@ module.exports = {
         publicPath:'http://localhost:8080'+'/out'  //公共资源路径
     },
     module:{
+        /*
+         * test :一个必须满足的条件 ,用正则匹配
+         * exclude : 一个排除的条件
+         * include : 要用Loader转换的导入文件的路径数组。 include: [path.resolve(__dirname, "app/src"),path.resolve(__dirname, "app/test")],
+         */
         rules:[
             {
-                test:/.js$/,
+                test:/.(js|jsx)$/,
+                exclude: /node_modules/, //除去node_modules内的文件
                 use:['babel-loader']
             },
             //解析css, 并把css添加到html的style标签里
@@ -51,5 +57,13 @@ module.exports = {
         ]
     },
     //插件集合
-    plugins:[uglifyPlugin,CommonsChunkPlugin,new ExtractTextPlugin('[name].css'),providePlugin]
+    plugins:[uglifyPlugin,CommonsChunkPlugin,new ExtractTextPlugin('[name].css'),providePlugin],
+    //webpack在构建包的时候会按目录的进行文件的查找，resolve属性中的extensions数组中用于配置程序可以自行补全哪些文件后缀
+    resolve:{
+        //自动补全文件后缀名
+        extensions: ['', '.js', '.jsx', '.less', '.scss', '.css']
+    },
+
+
+
 }
